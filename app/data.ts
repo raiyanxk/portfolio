@@ -1,9 +1,10 @@
-type Project = {
+type School = {
   name: string
-  description: string
-  link: string
-  video: string
-  id: string
+  degree: string
+  designations: string
+  gpa: string
+  start: string
+  end: string
 }
 
 type WorkExperience = {
@@ -12,6 +13,14 @@ type WorkExperience = {
   start: string
   end: string
   link: string
+  id: string
+}
+
+type Project = {
+  name: string
+  description: string
+  link: string
+  video: string
   id: string
 }
 
@@ -26,6 +35,44 @@ type SocialLink = {
   label: string
   link: string
 }
+
+export const EDUCATION: School[] = [
+  {
+    name: 'University of British Columbia',
+    degree: 'Bachelor of Applied Science in Computer Engineering',
+    designations: 'Dean\'s List - Co-op Student',
+    gpa: '4.33/4.33',
+    start: 'September 2022',
+    end: 'Present',
+  },
+]
+
+export const WORK_EXPERIENCE: WorkExperience[] = [
+  {
+    company: 'Amazon',
+    title: 'Software Development Engineer Intern',
+    start: 'May 2026',
+    end: 'Present',
+    link: 'https://www.amazon.ca/',
+    id: 'work1',
+  },
+  {
+    company: 'NETGEAR',
+    title: 'Firmware Engineer Intern',
+    start: 'January 2025',
+    end: 'April 2025',
+    link: 'https://www.netgear.com/',
+    id: 'work2',
+  },
+  {
+    company: 'Terra Dygital Solutions',
+    title: 'Software Developer Intern',
+    start: 'May 2024',
+    end: 'December 2024',
+    link: 'https://www.terradygital.com/',
+    id: 'work3',
+  },
+]
 
 export const PROJECTS: Project[] = [
   {
@@ -44,33 +91,6 @@ export const PROJECTS: Project[] = [
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
     id: 'project2',
-  },
-]
-
-export const WORK_EXPERIENCE: WorkExperience[] = [
-  {
-    company: 'Reglazed Studio',
-    title: 'CEO',
-    start: '2024',
-    end: 'Present',
-    link: 'https://ibelick.com',
-    id: 'work1',
-  },
-  {
-    company: 'Freelance',
-    title: 'Design Engineer',
-    start: '2022',
-    end: '2024',
-    link: 'https://ibelick.com',
-    id: 'work2',
-  },
-  {
-    company: 'Freelance',
-    title: 'Front-end Developer',
-    start: '2017',
-    end: 'Present',
-    link: 'https://ibelick.com',
-    id: 'work3',
   },
 ]
 
@@ -106,20 +126,12 @@ export const BLOG_POSTS: BlogPost[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'Github',
-    link: 'https://github.com/ibelick',
-  },
-  {
-    label: 'Twitter',
-    link: 'https://twitter.com/ibelick',
+    link: 'https://github.com/raiyanxk',
   },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick',
-  },
-  {
-    label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick',
+    link: 'https://www.linkedin.com/in/raiyanxk',
   },
 ]
 
-export const EMAIL = 'your@email.com'
+export const EMAIL = 'raiyankhan2002@gmail.com'

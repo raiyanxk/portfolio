@@ -137,8 +137,8 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            Focused on creating intuitive and performant web experiences.
-            Bridging the gap between design and development.
+            4th year Computer Engineering student at the University of British Columbia, passionate about building 
+            at scale to solve real world problems. 
           </p>
         </div>
       </motion.section>
@@ -252,9 +252,9 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-lg font-medium">Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Feel free to contact me at{' '}
+          I'm seeking impactful new grad opportunities for Spring 2027, feel free to reach out {' '}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
-            {EMAIL}
+            here!
           </a>
         </p>
         <div className="flex items-center justify-start space-x-3">
