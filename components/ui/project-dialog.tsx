@@ -7,23 +7,13 @@ import {
   MorphingDialogContent,
   MorphingDialogClose,
   MorphingDialogContainer,
-  MorphingDialogTitle,
-  MorphingDialogDescription,
 } from '@/components/ui/morphing-dialog'
 
-type DetailItem = {
-  label: string
-  value: string
-}
-
-type DetailDialogProps = {
+type ProjectDialogProps = {
   title: string
-  eyebrow: string
   description: string
-  details: DetailItem[]
-  technologies?: string[]
-  bulletLabel?: string
-  bulletItems?: string[]
+  video: string
+  technologies: string[]
   linkLabel?: string
   linkHref?: string
   children: React.ReactNode
@@ -44,18 +34,15 @@ function TechChips({ technologies }: { technologies: string[] }) {
   )
 }
 
-export function DetailDialog({
+export function ProjectDialog({
   title,
-  eyebrow,
   description,
-  details,
+  video,
   technologies,
-  bulletLabel,
-  bulletItems,
   linkLabel,
   linkHref,
   children,
-}: DetailDialogProps) {
+}: ProjectDialogProps) {
   return (
     <MorphingDialog
       transition={{
@@ -68,54 +55,34 @@ export function DetailDialog({
         {children}
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative w-[min(92vw,36rem)] rounded-3xl bg-white p-5 shadow-2xl ring-1 ring-zinc-200/70 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/70">
+        <MorphingDialogContent className="relative w-[min(92vw,48rem)] rounded-3xl bg-white p-5 shadow-2xl ring-1 ring-zinc-200/70 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/70">
           <div className="space-y-5">
-            <div tabIndex={0} className="sr-only" aria-hidden />
-
-            <div className="space-y-1 pr-10">
-              <MorphingDialogDescription className="text-sm text-zinc-500 dark:text-zinc-400">
-                {eyebrow}
-              </MorphingDialogDescription>
-              <MorphingDialogTitle className="text-xl font-medium text-zinc-950 dark:text-zinc-50">
-                {title}
-              </MorphingDialogTitle>
-              <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                {description}
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              {details.map((detail) => (
-                <div
-                  key={detail.label}
-                  className="flex items-start justify-between gap-4 border-b border-zinc-200 pb-2 last:border-b-0 last:pb-0 dark:border-zinc-800"
-                >
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                    {detail.label}
-                  </span>
-                  <span className="text-right text-sm text-zinc-900 dark:text-zinc-100">
-                    {detail.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {bulletItems && bulletItems.length > 0 ? (
-              <div className="space-y-3 rounded-2xl bg-zinc-50 p-4 dark:bg-zinc-900/50">
-                {bulletLabel ? (
-                  <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                    {bulletLabel}
-                  </p>
-                ) : null}
-                <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                  {bulletItems.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+            <div className="space-y-4 pr-10">
+              <div className="space-y-1">
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  Project
+                </p>
+                <h3 className="text-xl font-medium text-zinc-950 dark:text-zinc-50">
+                  {title}
+                </h3>
+                <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                  {description}
+                </p>
               </div>
-            ) : null}
+            </div>
 
-            {technologies && technologies.length > 0 ? (
+            <div className="overflow-hidden rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/60 ring-inset dark:bg-zinc-900/60 dark:ring-zinc-800/60">
+              <video
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="aspect-video h-auto w-full rounded-xl"
+              />
+            </div>
+
+            {technologies.length > 0 ? (
               <div className="space-y-3 rounded-2xl bg-zinc-50 p-4 dark:bg-zinc-900/50">
                 <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
                   Technologies

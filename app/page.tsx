@@ -1,21 +1,15 @@
 'use client'
 import { motion } from 'motion/react'
-import { XIcon } from 'lucide-react'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
-import {
-  MorphingDialog,
-  MorphingDialogTrigger,
-  MorphingDialogContent,
-  MorphingDialogClose,
-  MorphingDialogContainer,
-} from '@/components/ui/morphing-dialog'
 import { DetailDialog } from '@/components/ui/detail-dialog'
+import { ProjectDialog } from '@/components/ui/project-dialog'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
   EDUCATION,
+  SKILLS,
   EMAIL,
   SOCIAL_LINKS,
 } from './data'
@@ -37,56 +31,6 @@ const VARIANTS_SECTION = {
 
 const TRANSITION_SECTION = {
   duration: 0.3,
-}
-
-type ProjectVideoProps = {
-  src: string
-}
-
-function ProjectVideo({ src }: ProjectVideoProps) {
-  return (
-    <MorphingDialog
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: 0.3,
-      }}
-    >
-      <MorphingDialogTrigger>
-        <video
-          src={src}
-          autoPlay
-          loop
-          muted
-          className="aspect-video w-full cursor-zoom-in rounded-xl"
-        />
-      </MorphingDialogTrigger>
-      <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <video
-            src={src}
-            autoPlay
-            loop
-            muted
-            className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
-          />
-        </MorphingDialogContent>
-        <MorphingDialogClose
-          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
-          variants={{
-            initial: { opacity: 0 },
-            animate: {
-              opacity: 1,
-              transition: { delay: 0.3, duration: 0.1 },
-            },
-            exit: { opacity: 0, transition: { duration: 0 } },
-          }}
-        >
-          <XIcon className="h-5 w-5 text-zinc-500" />
-        </MorphingDialogClose>
-      </MorphingDialogContainer>
-    </MorphingDialog>
-  )
 }
 
 function MagneticSocialLink({
@@ -121,6 +65,26 @@ function MagneticSocialLink({
       </a>
     </Magnetic>
   )
+}
+
+function TechChips({ technologies }: { technologies: string[] }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {technologies.map((technology) => (
+        <span
+          key={technology}
+          className="rounded-full bg-zinc-200/60 px-2.5 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+        >
+          {technology}
+        </span>
+      ))}
+    </div>
+  )
+}
+
+type SkillItem = {
+  name: string
+  icon: string
 }
 
 export default function Personal() {
@@ -212,6 +176,7 @@ export default function Personal() {
               details={[
                 { label: 'Duration', value: `${job.start} - ${job.end}` },
               ]}
+              technologies={job.technologies}
               // bulletLabel="Accomplishments"
               bulletItems={job.responsibilities}
               linkLabel="Visit company"
@@ -236,6 +201,9 @@ export default function Personal() {
                       {job.start} - {job.end}
                     </p>
                   </div>
+                  <div className="mt-4">
+                    <TechChips technologies={job.technologies} />
+                  </div>
                 </div>
               </div>
             </DetailDialog>
@@ -250,18 +218,25 @@ export default function Personal() {
         <h3 className="mb-5 text-lg font-medium">Projects</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
-            <DetailDialog
+            <ProjectDialog
               key={project.id}
               title={project.name}
-              eyebrow="Project"
               description={project.description}
-              details={[]}
+              video={project.video}
+              technologies={project.technologies}
               linkLabel="Open project"
               linkHref={project.link}
             >
               <div className="space-y-2">
-                <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                  <ProjectVideo src={project.video} />
+                <div className="relative overflow-hidden rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                  <video
+                    src={project.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="aspect-video w-full cursor-zoom-in rounded-xl"
+                  />
                 </div>
                 <div className="px-1">
                   <div className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50">
@@ -271,9 +246,12 @@ export default function Personal() {
                   <p className="text-base text-zinc-600 dark:text-zinc-400">
                     {project.description}
                   </p>
+                  <div className="mt-3">
+                    <TechChips technologies={project.technologies} />
+                  </div>
                 </div>
               </div>
-            </DetailDialog>
+            </ProjectDialog>
           ))}
         </div>
       </motion.section>

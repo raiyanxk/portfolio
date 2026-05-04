@@ -16,6 +16,7 @@ type WorkExperience = {
   link: string
   id: string
   responsibilities: string[]
+  technologies: string[]
 }
 
 type Project = {
@@ -24,6 +25,7 @@ type Project = {
   link: string
   video: string
   id: string
+  technologies: string[]
 }
 
 type BlogPost = {
@@ -61,6 +63,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     responsibilities: [
       'Incoming on the Amazon Financial Foundation Services (AFFS) team',
     ],
+    technologies: [],
   },
   {
     company: 'NETGEAR',
@@ -75,6 +78,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Developed Python and Bash scripts to automate firmware builds and flashes, reducing setup and deployment time by 40%',
       'Updated C++ internal Windows tools for eSIM compatibility across 50,000+ next-generation hotspot products globally',
     ],
+    technologies: ['C', 'C++', 'Linux', 'Bash', 'Python', 'Docker', 'ADB', 'QXDM'],
   },
   {
     company: 'Terra Dygital Solutions',
@@ -88,6 +92,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       'Developed a custom document management system using the SPFx framework with TypeScript, integrating Azure Functions with the SharePoint API to automate the sign-out process of 20,000+ engineering drawings',
       'Built an xUnit test suite with Moq-based mocked and 97% statement coverage for a C# console app handling SQL imports',
     ],
+    technologies: ['C#', '.NET', 'React', 'TypeScript', 'Azure', 'Microsoft SQL Server', 'SPFx', 'xUnit'],
   },
 ]
 
@@ -100,6 +105,7 @@ export const PROJECTS: Project[] = [
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
     id: 'project1',
+    technologies: ['Python', 'PyTorch', 'NumPy', 'OpenCV', 'Deep Learning'],
   },
   {
     name: 'Self-Driving Car with Traffic Sign Recognition',
@@ -108,6 +114,7 @@ export const PROJECTS: Project[] = [
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
     id: 'project2',
+    technologies: ['Python', 'Computer Vision', 'OpenCV', 'NumPy', 'Deep Learning'],
   },
     {
     name: 'asd',
@@ -116,6 +123,7 @@ export const PROJECTS: Project[] = [
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
     id: 'project3',
+    technologies: ['TypeScript', 'React', 'Motion', 'Tailwind CSS'],
   },
     {
     name: 'Self-Driving Car with Traffic Sign Recognition',
@@ -124,6 +132,7 @@ export const PROJECTS: Project[] = [
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
     id: 'project4',
+    technologies: ['Python', 'OpenCV', 'PyTorch', 'NumPy', 'Computer Vision'],
   },
 ]
 
