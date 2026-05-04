@@ -14,13 +14,22 @@ type Shape = {
 
 const SHAPE_SIZE_SCALE = 0.55
 
+function toPercent(value: number) {
+  return `${value.toFixed(4)}%`
+}
+
+function seededNoise(index: number, seed: number) {
+  const value = Math.sin(index * 12.9898 + seed * 78.233) * 43758.5453
+  return value - Math.floor(value)
+}
+
 const SHAPES: Shape[] = Array.from({ length: 52 }, (_, index) => {
-  const column = index % 13
-  const row = Math.floor(index / 13)
+  const randomTop = 4 + seededNoise(index, 1) * 92
+  const randomLeft = 3 + seededNoise(index, 2) * 94
 
   return {
-    top: `${8 + row * 21 + ((index * 7) % 9)}%`,
-    left: `${4 + column * 7 + ((index * 11) % 6)}%`,
+    top: toPercent(randomTop),
+    left: toPercent(randomLeft),
     size: (6 + (index % 8)) * SHAPE_SIZE_SCALE,
     kind: index % 2 === 0 ? 'cube' : 'pyramid',
     duration: 16 + (index % 10),
