@@ -126,7 +126,7 @@ function MagneticSocialLink({
 export default function Personal() {
   return (
     <motion.main
-      className="space-y-24"
+      className="space-y-10"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
@@ -153,7 +153,7 @@ export default function Personal() {
             <DetailDialog
               key={school.id}
               title={school.name}
-              eyebrow=''
+              eyebrow='Education'
               description={school.degree}
               details={[
                 { label: 'Duration', value: `${school.start} - ${school.end}` },

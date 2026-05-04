@@ -53,6 +53,8 @@ export function DetailDialog({
       <MorphingDialogContainer>
         <MorphingDialogContent className="relative w-[min(92vw,36rem)] rounded-3xl bg-white p-5 shadow-2xl ring-1 ring-zinc-200/70 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/70">
           <div className="space-y-5">
+            <div tabIndex={0} className="sr-only" aria-hidden />
+
             <div className="space-y-1 pr-10">
               <MorphingDialogDescription className="text-sm text-zinc-500 dark:text-zinc-400">
                 {eyebrow}
