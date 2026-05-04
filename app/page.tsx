@@ -283,7 +283,7 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-lg font-medium">Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          I'm seeking impactful new grad opportunities for Spring 2027, feel free to reach out {' '}
+          I'm seeking impactful new grad opportunities for Spring 2027, please feel free to reach out {' '}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
             here!
           </a>
