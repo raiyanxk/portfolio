@@ -93,7 +93,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const PROJECTS: Project[] = [
   {
-    name: 'Motion Primitives Pro',
+    name: 'Medical Segmentation of Gastrointestinal Images with Deep Learning',
     description:
       'Advanced components and templates to craft beautiful websites.',
     link: 'https://pro.motion-primitives.com/',
@@ -102,12 +102,28 @@ export const PROJECTS: Project[] = [
     id: 'project1',
   },
   {
-    name: 'Motion Primitives',
+    name: 'Self-Driving Car with Traffic Sign Recognition',
     description: 'UI kit to make beautiful, animated interfaces.',
     link: 'https://motion-primitives.com/',
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
     id: 'project2',
+  },
+    {
+    name: 'asd',
+    description: 'UI kit to make beautiful, animated interfaces.',
+    link: 'https://motion-primitives.com/',
+    video:
+      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    id: 'project3',
+  },
+    {
+    name: 'Self-Driving Car with Traffic Sign Recognition',
+    description: 'UI kit to make beautiful, animated interfaces.',
+    link: 'https://motion-primitives.com/',
+    video:
+      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    id: 'project4',
   },
 ]
 

@@ -153,8 +153,8 @@ export default function Personal() {
             <DetailDialog
               key={school.id}
               title={school.name}
-              eyebrow="Education"
-              description=''
+              eyebrow=''
+              description={school.degree}
               details={[
                 { label: 'Duration', value: `${school.start} - ${school.end}` },
                 { label: 'Designations', value: school.designations },
@@ -168,6 +168,7 @@ export default function Personal() {
                 'Operating Systems',
                 'Applied Machine Learning',
                 'Applied Linear Algebra',
+                'Digital Systems Design',
               ]}
             >
               <div className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30">
