@@ -5,6 +5,7 @@ type School = {
   gpa: string
   start: string
   end: string
+  id: string
 }
 
 type WorkExperience = {
@@ -14,6 +15,7 @@ type WorkExperience = {
   end: string
   link: string
   id: string
+  responsibilities: string[]
 }
 
 type Project = {
@@ -40,10 +42,11 @@ export const EDUCATION: School[] = [
   {
     name: 'University of British Columbia',
     degree: 'Bachelor of Applied Science in Computer Engineering',
-    designations: 'Dean\'s List - Co-op Student',
-    gpa: '4.33/4.33',
+    designations: 'Dean\'s List — Co-op Student',
+    gpa: '4.33 / 4.33',
     start: 'September 2022',
     end: 'Present',
+    id: 'school1',
   },
 ]
 
@@ -55,6 +58,9 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: 'https://www.amazon.ca/',
     id: 'work1',
+    responsibilities: [
+      'Incoming on the Amazon Financial Foundation Services (AFFS) team',
+    ],
   },
   {
     company: 'NETGEAR',
@@ -63,6 +69,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'April 2025',
     link: 'https://www.netgear.com/',
     id: 'work2',
+    responsibilities: [
+      'Optimized 10+ firmware API routes reducing Mobile Hotspot GUI update latency by 30% for hardware data display',
+      'Leveraged a Linux and Docker-based environment to build and flash firmware images onto hotspot devices, using ADB and QXDM to validate firmware functionality during runtime, ensuring optimal device performance',
+      'Developed Python and Bash scripts to automate firmware builds and flashes, reducing setup and deployment time by 40%',
+      'Updated C++ internal Windows tools for eSIM compatibility across 50,000+ next-generation hotspot products globally',
+    ],
   },
   {
     company: 'Terra Dygital Solutions',
@@ -71,6 +83,11 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'December 2024',
     link: 'https://www.terradygital.com/',
     id: 'work3',
+    responsibilities: [
+      'Created a full-stack web application to manage company timesheets and billing data using the .NET framework, Microsoft SQL Server, and React, accelerating the customer billing process by 2 weeks per month',
+      'Developed a custom document management system using the SPFx framework with TypeScript, integrating Azure Functions with the SharePoint API to automate the sign-out process of 20,000+ engineering drawings',
+      'Built an xUnit test suite with Moq-based mocked and 97% statement coverage for a C# console app handling SQL imports',
+    ],
   },
 ]
 

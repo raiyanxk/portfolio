@@ -10,12 +10,12 @@ import {
   MorphingDialogClose,
   MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
-import Link from 'next/link'
+import { DetailDialog } from '@/components/ui/detail-dialog'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
-  BLOG_POSTS,
+  EDUCATION,
   EMAIL,
   SOCIAL_LINKS,
 } from './data'
@@ -147,27 +147,51 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
+        <h3 className="mb-5 text-lg font-medium">Education</h3>
+        <div className="flex flex-col space-y-2">
+          {EDUCATION.map((school) => (
+            <DetailDialog
+              key={school.id}
+              title={school.name}
+              eyebrow="Education"
+              description=''
+              details={[
+                { label: 'Duration', value: `${school.start} - ${school.end}` },
+                { label: 'Designations', value: school.designations },
+                { label: 'GPA', value: school.gpa },
+              ]}
+              bulletLabel="Relevant Coursework"
+              bulletItems={[
+                'Data Structures and Algorithms',
+                'Software Engineering',
+                'Computing Systems',
+                'Operating Systems',
+                'Applied Machine Learning',
+                'Applied Linear Algebra',
+              ]}
+            >
+              <div className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30">
+                <Spotlight
+                  className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                  size={64}
+                />
+                <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                  <div className="relative flex w-full flex-row justify-between">
+                    <div>
+                      <h4 className="font-normal dark:text-zinc-100">
+                        {school.name}
+                      </h4>
+                      <p className="text-zinc-500 dark:text-zinc-400">
+                        {school.degree}
+                      </p>
+                    </div>
+                    <p className="text-zinc-600 dark:text-zinc-400">
+                      {school.start} - {school.end}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                >
-                  {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-            </div>
+            </DetailDialog>
           ))}
         </div>
       </motion.section>
@@ -179,33 +203,41 @@ export default function Personal() {
         <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
-            <a
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-              href={job.link}
-              target="_blank"
-              rel="noopener noreferrer"
+            <DetailDialog
               key={job.id}
+              title={job.title}
+              eyebrow={job.company}
+              description=''
+              details={[
+                { label: 'Duration', value: `${job.start} - ${job.end}` },
+              ]}
+              // bulletLabel="Accomplishments"
+              bulletItems={job.responsibilities}
+              linkLabel="Visit company"
+              linkHref={job.link}
             >
-              <Spotlight
-                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-                size={64}
-              />
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="relative flex w-full flex-row justify-between">
-                  <div>
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {job.title}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {job.company}
+              <div className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30">
+                <Spotlight
+                  className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                  size={64}
+                />
+                <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                  <div className="relative flex w-full flex-row justify-between">
+                    <div>
+                      <h4 className="font-normal dark:text-zinc-100">
+                        {job.title}
+                      </h4>
+                      <p className="text-zinc-500 dark:text-zinc-400">
+                        {job.company}
+                      </p>
+                    </div>
+                    <p className="text-zinc-600 dark:text-zinc-400">
+                      {job.start} - {job.end}
                     </p>
                   </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
-                    {job.start} - {job.end}
-                  </p>
                 </div>
               </div>
-            </a>
+            </DetailDialog>
           ))}
         </div>
       </motion.section>
@@ -214,35 +246,34 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-3 text-lg font-medium">Blog</h3>
-        <div className="flex flex-col space-y-0">
-          <AnimatedBackground
-            enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.2,
-            }}
-          >
-            {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="-mx-3 rounded-xl px-3 py-3"
-                href={post.link}
-                data-id={post.uid}
-              >
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {post.title}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {post.description}
+        <h3 className="mb-5 text-lg font-medium">Projects</h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {PROJECTS.map((project) => (
+            <DetailDialog
+              key={project.id}
+              title={project.name}
+              eyebrow="Project"
+              description={project.description}
+              details={[]}
+              linkLabel="Open project"
+              linkHref={project.link}
+            >
+              <div className="space-y-2">
+                <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                  <ProjectVideo src={project.video} />
+                </div>
+                <div className="px-1">
+                  <div className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50">
+                    {project.name}
+                    <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
+                  </div>
+                  <p className="text-base text-zinc-600 dark:text-zinc-400">
+                    {project.description}
                   </p>
                 </div>
-              </Link>
-            ))}
-          </AnimatedBackground>
+              </div>
+            </DetailDialog>
+          ))}
         </div>
       </motion.section>
 
