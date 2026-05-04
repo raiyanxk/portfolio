@@ -12,7 +12,7 @@ type Shape = {
   rotate: number
 }
 
-const SHAPE_SIZE_SCALE = 0.5
+const SHAPE_SIZE_SCALE = 0.55
 
 const SHAPES: Shape[] = Array.from({ length: 52 }, (_, index) => {
   const column = index % 13

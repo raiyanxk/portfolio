@@ -9,7 +9,6 @@ import {
   PROJECTS,
   WORK_EXPERIENCE,
   EDUCATION,
-  SKILLS,
   EMAIL,
   SOCIAL_LINKS,
 } from './data'
