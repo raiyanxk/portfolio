@@ -70,7 +70,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     company: 'NETGEAR',
     title: 'Firmware Engineer Intern',
     start: 'January 2025',
-    end: 'April 2025',
+    end: 'August 2025',
     link: 'https://www.netgear.com/',
     id: 'work2',
     responsibilities: [
