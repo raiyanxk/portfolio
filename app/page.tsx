@@ -222,20 +222,29 @@ export default function Personal() {
               title={project.name}
               description={project.description}
               video={project.video}
+              media={project.media}
               technologies={project.technologies}
               linkLabel="Open project"
               linkHref={project.link}
             >
               <div className="space-y-2">
                 <div className="relative overflow-hidden rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                {project.video ? (
                   <video
-                    src={project.video}
+                    src={project.media}
                     autoPlay
                     loop
                     muted
                     playsInline
                     className="aspect-video w-full cursor-zoom-in rounded-xl"
                   />
+                ) : (
+                  <img
+                    src={project.media}
+                    alt={project.name}
+                    className="aspect-video w-full cursor-zoom-in rounded-xl object-contain"
+                  />
+                )}
                 </div>
                 <div className="px-1">
                   <div className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50">

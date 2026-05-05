@@ -23,7 +23,8 @@ type Project = {
   name: string
   description: string
   link: string
-  video: string
+  video: boolean
+  media: string
   id: string
   technologies: string[]
 }
@@ -102,8 +103,8 @@ export const PROJECTS: Project[] = [
     description:
       'Advanced components and templates to craft beautiful websites.',
     link: 'https://pro.motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
+    video: true,
+    media: '/demo.mp4',
     id: 'project1',
     technologies: ['Python', 'PyTorch', 'NumPy', 'OpenCV', 'Deep Learning'],
   },
@@ -111,27 +112,45 @@ export const PROJECTS: Project[] = [
     name: 'Self-Driving Car with Traffic Sign Recognition',
     description: 'UI kit to make beautiful, animated interfaces.',
     link: 'https://motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    video: true,
+    media: '/pnd.mp4',
     id: 'project2',
     technologies: ['Python', 'Computer Vision', 'OpenCV', 'NumPy', 'Deep Learning'],
   },
-    {
+  {
     name: 'asd',
     description: 'UI kit to make beautiful, animated interfaces.',
     link: 'https://motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    video: true,
+    media: '/tor.mp4',
     id: 'project3',
     technologies: ['TypeScript', 'React', 'Motion', 'Tailwind CSS'],
   },
-    {
+  {
     name: 'Self-Driving Car with Traffic Sign Recognition',
     description: 'UI kit to make beautiful, animated interfaces.',
     link: 'https://motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    video: true,
+    media: '/tor_slow.mp4',
     id: 'project4',
+    technologies: ['Python', 'OpenCV', 'PyTorch', 'NumPy', 'Computer Vision'],
+  },
+  {
+    name: 'asd',
+    description: 'UI kit to make beautiful, animated interfaces.',
+    link: 'https://motion-primitives.com/',
+    video: true,
+    media: '/veg.mp4',
+    id: 'project5',
+    technologies: ['TypeScript', 'React', 'Motion', 'Tailwind CSS'],
+  },
+  {
+    name: 'Self-Driving Car with Traffic Sign Recognition',
+    description: 'UI kit to make beautiful, animated interfaces.',
+    link: 'https://motion-primitives.com/',
+    video: false,
+    media: '/tree-bottom.png',
+    id: 'project6',
     technologies: ['Python', 'OpenCV', 'PyTorch', 'NumPy', 'Computer Vision'],
   },
 ]

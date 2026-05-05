@@ -12,7 +12,8 @@ import {
 type ProjectDialogProps = {
   title: string
   description: string
-  video: string
+  video: boolean
+  media: string
   technologies: string[]
   linkLabel?: string
   linkHref?: string
@@ -38,6 +39,7 @@ export function ProjectDialog({
   title,
   description,
   video,
+  media,
   technologies,
   linkLabel,
   linkHref,
@@ -72,14 +74,22 @@ export function ProjectDialog({
             </div>
 
             <div className="overflow-hidden rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/60 ring-inset dark:bg-zinc-900/60 dark:ring-zinc-800/60">
-              <video
-                src={video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="aspect-video h-auto w-full rounded-xl"
-              />
+              {video ? (
+                <video
+                  src={media}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="aspect-video h-auto w-full rounded-xl"
+                />
+              ) : (
+                <img
+                  src={media}
+                  alt={title}
+                  className="aspect-video w-full cursor-zoom-in rounded-xl object-contain"
+                />
+              )}
             </div>
 
             {technologies.length > 0 ? (
