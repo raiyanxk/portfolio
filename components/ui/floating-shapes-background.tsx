@@ -52,8 +52,8 @@ export function FloatingShapesBackground() {
           className="absolute will-change-transform"
           style={{ top: shape.top, left: shape.left }}
           animate={{
-            y: [0, -30, 0, 22, 0],
-            x: [0, 14, 0, -12, 0],
+            y: [0, -48, 0, 36, 0],
+            x: [0, 22, 0, -20, 0],
             rotate: [shape.rotate, shape.rotate + 16, shape.rotate - 14, shape.rotate],
           }}
           transition={{
