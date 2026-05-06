@@ -70,7 +70,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     company: 'NETGEAR',
     title: 'Firmware Engineer Intern',
     start: 'January 2025',
-    end: 'April 2025',
+    end: 'August 2025',
     link: 'https://www.netgear.com/',
     id: 'work2',
     responsibilities: [
@@ -129,7 +129,7 @@ export const PROJECTS: Project[] = [
   {
     name: 'NHL Salary Projections',
     description: 'Predicting market value of NHL players based off advanced 24-25 season stats',
-    link: 'https://motion-primitives.com/',
+    link: 'https://github.com/raiyanxk/nhl-salary-app',
     video: true,
     media: '/nhl.mp4',
     id: 'project4',
