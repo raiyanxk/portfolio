@@ -62,7 +62,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://www.amazon.ca/',
     id: 'work1',
     responsibilities: [
-      'Incoming on the Amazon Financial Foundation Services (AFFS) team',
+      'Incoming on the Amortization Runtime Subledger (ARS) team',
     ],
     technologies: [],
   },
